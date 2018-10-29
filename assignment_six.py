@@ -9,7 +9,10 @@ import random
 
 
 def main():
-    words = ["aberration", "abject"]
+    words = ["aberration", "abject", "ability", "able", "about", "above", "accept", "according", "account", "across",
+             "act", "action", "activity", "actually", "add", "address", "administration", "admit", "adult", "affect",
+             "after", "again", "against", "age", "agency", "agent", "ago", "agree", "agreement", "ahead", "air", "all",]
+    # all those words are starting with "a".
     word = random.choice(words)
     blank_list = []
     number_guesses = 7
@@ -22,7 +25,7 @@ def main():
             print("Nice! Let's start the Squeal of Fortune now!")
             for x in range(len(word)):
                     blank_list.append("_")
-            while number_guesses > 0 or "_" not in blank_list:
+            while number_guesses > 0 and "_" in blank_list:
                 print(blank_list)
                 letter = input("Please guess a letter:")
                 if letter in word:
@@ -35,6 +38,7 @@ def main():
                     number_guessed = number_guessed + 1
                     if number_guessed >= 7:
                         print("You had used all your chances, sorry, you lost.")
+                        break
                 while "_" not in blank_list:
                     print("Congratulation! You got the word!")
                     break
